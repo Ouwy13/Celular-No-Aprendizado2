@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>Apresentação - O Uso Excessivo do Celular na Aprendizagem</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Border gradient shared style */
+        .border-gradient {
+            position: relative;
+        }
+        .border-gradient::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            background: linear-gradient(225deg, rgba(255, 255, 255, 0.0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.0) 100%);
+            pointer-events: none;
+        }
+
+        /* Slide Transitions */
+        .slide {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(30px) scale(0.98);
+            filter: blur(8px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 2rem;
+        }
+        .slide.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0px);
+        }
+        
+        .slide.active > * {
+            pointer-events: auto;
+        }
+        
+        /* Utility to remove focus outline for mouse users but keep for keyboard */
+        button:focus:not(:focus-visible) {
+            outline: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen antialiased">
+    
+    <!-- Background -->
+    <div class="fixed inset-0 -z-10">
+        <div class="absolute inset-0 opacity-[0.03]">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern height="64" id="grid" patternUnits="userSpaceOnUse" width="64">
+                        <path d="M64 0H0v64" fill="none" stroke="white" stroke-width="0.5"></path>
+                    </pattern>
+                </defs>
+                <rect fill="url(#grid)" height="100%" width="100%"></rect>
+            </svg>
+        </div>
+    </div>
+    
+    <!-- Particles Animation -->
+    <div class="fixed inset-0 z-0 mix-blend-screen" id="particles-js" style="-webkit-mask-image: linear-gradient(to right, black 0%, transparent 25%, transparent 75%, black 100%); mask-image: linear-gradient(to right, black 0%, transparent 25%, transparent 75%, black 100%);"></div>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 60, density: { enable: true, value_area: 800 } },
+                    color: { value: "#ffffff" },
+                    shape: { type: "circle" },
+                    opacity: { value: 0.5, random: false },
+                    size: { value: 3, random: true },
+                    line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.3, width: 1 },
+                    move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "out", bounce: false }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+                    modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
+                },
+                retina_detect: true
+            });
+        });
+    </script>
+
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 right-0 h-1 bg-white/5 z-50">
+        <div id="progressBar" class="h-full bg-blue-400 transition-all duration-700 ease-out" style="width: 12.5%;"></div>
+    </div>
+
+    <!-- Slides Container -->
+    <main class="relative w-full h-screen overflow-hidden">
+        
+        <!-- Slide 1: Capa -->
+        <div class="slide active" id="slide-0">
+            <div class="inline-flex items-center gap-2 rounded-full border-gradient bg-white/5 px-4 py-2 text-sm text-neutral-300 mb-8 backdrop-blur" style="border-radius: 9999px;">
+                <span class="inline-flex items-center justify-center rounded-full bg-blue-400/20 text-blue-300 px-3 py-1 font-semibold">Turma: 304</span>
+                <span class="font-medium text-white/90">Curso: Técnico em Informática para Internet</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter text-center max-w-5xl text-white mb-12 font-bold leading-tight">
+                O Uso Excessivo do Celular na Aprendizagem
+            </h1>
+            
+            <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6 border-gradient backdrop-blur max-w-2xl w-full text-center">
+                <h3 class="text-xs font-semibold text-neutral-500 mb-3 uppercase tracking-[0.2em]">Integrantes</h3>
+                <p class="text-lg text-neutral-200">José Roberto, Maiza Bastos, Eduardo e Alexssanderson</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Contextualização -->
+        <div class="slide" id="slide-1">
+            <div class="w-full max-w-4xl px-4">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl tracking-tighter text-white mb-12 text-center flex items-center justify-center gap-4 font-semibold">
+                    <span class="text-blue-400 font-mono text-xl sm:text-2xl font-light opacity-80">02</span> Contextualização
+                </h2>
+                <div class="rounded-3xl border-gradient bg-white/5 p-8 md:p-12 backdrop-blur text-center ring-1 ring-white/10" style="border-radius: 24px;">
+                    <p class="text-xl md:text-2xl text-neutral-300 leading-relaxed mb-8">
+                        O celular já faz parte da vida dos estudantes.
+                        Ele está presente na comunicação, no lazer, nas pesquisas e até nas atividades escolares.
+                    </p>
+                    <div class="h-px w-24 bg-white/10 mx-auto mb-8"></div>
+                    <p class="text-2xl md:text-3xl text-white font-medium leading-tight">
+                        Por isso, a questão não é simplesmente “usar ou não usar”.<br>
+                        <span class="text-blue-400 mt-2 block">A questão é: como usamos?</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: O celular entre ajuda e distração -->
+        <div class="slide" id="slide-2">
+            <div class="w-full max-w-5xl px-4">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl tracking-tighter text-white mb-12 text-center flex items-center justify-center gap-4 font-semibold">
+                    <span class="text-blue-400 font-mono text-xl sm:text-2xl font-light opacity-80">03</span> O celular entre ajuda e distração
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-8 md:p-10 border-gradient backdrop-blur flex flex-col justify-center transition-all hover:bg-white/10">
+                        <div class="w-14 h-14 rounded-full bg-blue-400/10 flex items-center justify-center mb-8 text-blue-400 border border-blue-400/20">
+                           <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        </div>
+                        <p class="text-xl text-neutral-200 leading-relaxed font-medium">O mesmo celular que ajuda a estudar também pode tirar o foco.</p>
+                        <p class="text-lg text-neutral-400 mt-4 leading-relaxed">Ele permite pesquisar, assistir aulas e acessar conteúdos.</p>
+                    </div>
+                    <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-8 md:p-10 border-gradient backdrop-blur flex flex-col justify-center transition-all hover:bg-white/10">
+                        <div class="w-14 h-14 rounded-full bg-red-400/10 flex items-center justify-center mb-8 text-red-400 border border-red-400/20">
+                           <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                        </div>
+                        <p class="text-lg text-neutral-400 leading-relaxed">Mas também oferece redes sociais, mensagens e vídeos o tempo todo.</p>
+                        <p class="text-xl text-white font-medium mt-4 leading-relaxed">O problema começa quando o uso deixa de ser escolha e vira impulso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Aprendizagem e atenção -->
+        <div class="slide" id="slide-3">
+            <div class="w-full max-w-4xl text-center px-4">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl tracking-tighter text-white mb-12 flex items-center justify-center gap-4 font-semibold">
+                    <span class="text-blue-400 font-mono text-xl sm:text-2xl font-light opacity-80">04</span> Aprendizagem e atenção
+                </h2>
+                
+                <div class="space-y-8">
+                    <p class="text-xl md:text-2xl text-neutral-300 leading-relaxed">
+                        Aprender exige mais do que estar com o conteúdo aberto na tela.<br>
+                        É preciso <span class="text-white font-semibold">atenção, tempo e envolvimento.</span>
+                    </p>
+                    
+                    <div class="inline-flex items-center gap-5 rounded-full border-gradient bg-white/5 px-8 py-5 backdrop-blur ring-1 ring-white/10 text-left w-full sm:w-auto">
+                        <span class="w-3 h-3 rounded-full bg-blue-400 animate-pulse shrink-0 shadow-[0_0_12px_rgba(96,165,250,0.6)]"></span>
+                        <p class="text-lg md:text-xl text-neutral-200">
+                            Quando o estudante interrompe o estudo várias vezes, ele até vê o conteúdo, mas pode não compreender de verdade.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Uma reflexão sobre o hábito -->
+        <div class="slide" id="slide-4">
+            <div class="w-full max-w-4xl px-4">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl tracking-tighter text-white mb-12 text-center flex items-center justify-center gap-4 font-semibold">
+                    <span class="text-blue-400 font-mono text-xl sm:text-2xl font-light opacity-80">05</span> Uma reflexão sobre o hábito
+                </h2>
+                <div class="space-y-5">
+                    <div class="rounded-2xl border-gradient ring-1 ring-white/10 bg-white/5 p-6 backdrop-blur flex items-center gap-6 transition-transform hover:-translate-y-1 duration-300">
+                        <div class="w-10 h-10 rounded-full bg-neutral-800 text-neutral-400 flex items-center justify-center shrink-0 font-mono text-sm border border-white/5">01</div>
+                        <p class="text-xl text-neutral-200">Muitas vezes, o estudante pega o celular sem perceber.</p>
+                    </div>
+                    <div class="rounded-2xl border-gradient ring-1 ring-white/10 bg-white/5 p-6 backdrop-blur flex items-center gap-6 transition-transform hover:-translate-y-1 duration-300">
+                        <div class="w-10 h-10 rounded-full bg-neutral-800 text-neutral-400 flex items-center justify-center shrink-0 font-mono text-sm border border-white/5">02</div>
+                        <p class="text-xl text-neutral-200">Não é sempre por necessidade, mas por costume.</p>
+                    </div>
+                    <div class="rounded-2xl border-gradient ring-1 border-blue-500/30 bg-blue-500/10 p-6 backdrop-blur flex items-center gap-6 transition-transform hover:-translate-y-1 duration-300 shadow-[0_0_30px_rgba(59,130,246,0.1)]">
+                        <div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 border border-blue-400/30">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        <p class="text-xl text-white font-medium">Essa repetição cria uma dificuldade: ficar alguns minutos concentrado parece cada vez mais difícil.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Reflexão com autores -->
+        <div class="slide" id="slide-5">
+            <div class="w-full max-w-6xl px-4">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl tracking-tighter text-white mb-12 text-center flex items-center justify-center gap-4 font-semibold">
+                    <span class="text-blue-400 font-mono text-xl sm:text-2xl font-light opacity-80">06</span> Reflexão com autores
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-8 border-gradient backdrop-blur flex flex-col hover:bg-white/10 transition-colors">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-neutral-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 14c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2z"></path><path d="M11.42 21.814a.998.998 0 0 0 1.16 0C12.884 21.599 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.995c-.029 6.445 7.116 11.604 7.42 11.819zM12 4c3.309 0 6 2.691 6 6.005.021 4.438-4.388 8.423-6 9.73-1.611-1.308-6.021-5.294-6-9.735 0-3.309 2.691-6 6-6z"></path></svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-white">Nicholas Carr</h3>
+                        </div>
+                        <p class="text-base text-neutral-300 leading-relaxed">alerta que o excesso de informação digital pode deixar o pensamento mais rápido, porém menos profundo.</p>
+                    </div>
+                    <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-8 border-gradient backdrop-blur flex flex-col hover:bg-white/10 transition-colors">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-neutral-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 14c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2z"></path><path d="M11.42 21.814a.998.998 0 0 0 1.16 0C12.884 21.599 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.995c-.029 6.445 7.116 11.604 7.42 11.819zM12 4c3.309 0 6 2.691 6 6.005.021 4.438-4.388 8.423-6 9.73-1.611-1.308-6.021-5.294-6-9.735 0-3.309 2.691-6 6-6z"></path></svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-white">Byung-Chul Han</h3>
+                        </div>
+                        <p class="text-base text-neutral-300 leading-relaxed">fala sobre o cansaço causado pelo excesso de estímulos.</p>
+                    </div>
+                    <div class="rounded-3xl bg-white/5 ring-1 ring-white/10 p-8 border-gradient backdrop-blur flex flex-col hover:bg-white/10 transition-colors">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-neutral-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 14c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2z"></path><path d="M11.42 21.814a.998.998 0 0 0 1.16 0C12.884 21.599 20.029 16.44 20 10c0-4.411-3.589-8-8-8S4 5.589 4 9.995c-.029 6.445 7.116 11.604 7.42 11.819zM12 4c3.309 0 6 2.691 6 6.005.021 4.438-4.388 8.423-6 9.73-1.611-1.308-6.021-5.294-6-9.735 0-3.309 2.691-6 6-6z"></path></svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-white">Paulo Freire</h3>
+                        </div>
+                        <p class="text-base text-neutral-300 leading-relaxed">nos lembra da importância da autonomia e da consciência no processo de aprender.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Meio de intervenção individual -->
+        <div class="slide" id="slide-6">
+            <div class="w-full max-w-4xl px-4">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl tracking-tighter text-white mb-8 text-center flex items-center justify-center gap-4 font-semibold">
+                    <span class="text-blue-400 font-mono text-xl sm:text-2xl font-light opacity-80">07</span> Meio de intervenção individual
+                </h2>
+                
+                <div class="rounded-3xl border-gradient bg-white/5 p-8 md:p-10 backdrop-blur ring-1 ring-white/10" style="border-radius: 24px;">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
+                        <div class="inline-flex items-center gap-2 rounded-full border-gradient bg-white/10 px-4 py-2 text-sm text-white" style="border-radius: 9999px;">
+                            <span class="text-blue-400 font-medium uppercase tracking-wider text-xs">Projeto:</span> “Meu Modo Estudo”
+                        </div>
+                        <p class="text-base text-neutral-400">Duração: <span class="text-neutral-200">1 semana</span></p>
+                    </div>
+                    
+                    <p class="text-xl text-white mb-6 font-medium">Cada estudante pode testar uma rotina simples:</p>
+                    
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <li class="flex items-center gap-4 text-neutral-300 bg-neutral-950/50 p-4 rounded-2xl border border-white/5">
+                            <div class="w-2 h-2 rounded-full bg-blue-400 shrink-0"></div> definir um horário curto de estudo;
+                        </li>
+                        <li class="flex items-center gap-4 text-neutral-300 bg-neutral-950/50 p-4 rounded-2xl border border-white/5">
+                            <div class="w-2 h-2 rounded-full bg-blue-400 shrink-0"></div> ativar o modo foco;
+                        </li>
+                        <li class="flex items-center gap-4 text-neutral-300 bg-neutral-950/50 p-4 rounded-2xl border border-white/5">
+                            <div class="w-2 h-2 rounded-full bg-blue-400 shrink-0"></div> silenciar notificações;
+                        </li>
+                        <li class="flex items-center gap-4 text-neutral-300 bg-neutral-950/50 p-4 rounded-2xl border border-white/5">
+                            <div class="w-2 h-2 rounded-full bg-blue-400 shrink-0"></div> deixar longe os aplicativos que mais distraem;
+                        </li>
+                        <li class="flex items-center gap-4 text-neutral-300 bg-neutral-950/50 p-4 rounded-2xl border border-white/5 sm:col-span-2">
+                            <div class="w-2 h-2 rounded-full bg-blue-400 shrink-0"></div> anotar se conseguiu estudar melhor naquele dia.
+                        </li>
+                    </ul>
+                    
+                    <div class="pt-6 border-t border-white/10 text-center">
+                        <p class="text-xl text-blue-100 font-medium">
+                            A ideia não é proibir o celular, mas aprender a controlar o próprio uso.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Conclusão -->
+        <div class="slide" id="slide-7">
+            <div class="w-full max-w-4xl text-center px-4">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl tracking-tighter text-white mb-12 flex items-center justify-center gap-4 font-semibold">
+                    <span class="text-blue-400 font-mono text-xl sm:text-2xl font-light opacity-80">08</span> Conclusão
+                </h2>
+                
+                <p class="text-xl md:text-2xl text-neutral-300 leading-relaxed mb-4">
+                    O celular pode ser uma ferramenta importante para aprender.
+                </p>
+                <p class="text-xl md:text-2xl text-neutral-300 leading-relaxed mb-12">
+                    Mas, quando usado sem controle, pode atrapalhar a atenção e o rendimento.
+                </p>
+                
+                <div class="rounded-3xl border-gradient bg-gradient-to-br from-blue-900/20 to-neutral-900/50 p-10 backdrop-blur mb-12 ring-1 ring-white/10 shadow-[0_0_40px_rgba(59,130,246,0.05)]">
+                    <p class="text-2xl md:text-3xl text-white font-medium leading-tight">
+                        A reflexão principal é: não basta estar conectado; é preciso estar presente no que se está fazendo.
+                    </p>
+                </div>
+                
+                <div class="inline-flex items-center gap-3 rounded-full border-gradient bg-white/5 px-8 py-4 text-lg text-white backdrop-blur ring-1 ring-white/10" style="border-radius: 9999px;">
+                    <span class="text-blue-400 font-semibold uppercase tracking-wider text-sm">Conceito-chave:</span> 
+                    <span class="font-medium">autonomia digital.</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Navigation Controls -->
+    <div class="fixed bottom-8 left-0 right-0 z-50 flex justify-center items-center gap-6">
+        <button id="prevBtn" aria-label="Slide anterior" class="inline-flex gap-2 border-gradient text-white/80 bg-white/5 rounded-full p-4 backdrop-blur-xl items-center transition-all hover:text-white hover:-translate-y-0.5 hover:bg-white/10 focus:ring-2 focus:ring-blue-400 focus:outline-none disabled:opacity-30 disabled:hover:translate-y-0 disabled:hover:bg-white/5 disabled:cursor-not-allowed ring-1 ring-white/10 shadow-lg" style="border-radius: 9999px">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        
+        <div class="text-neutral-400 text-sm font-mono font-medium px-4 py-2 rounded-full bg-black/20 backdrop-blur border border-white/5">
+            <span id="currentSlideNum" class="text-white">1</span> <span class="opacity-50">/</span> 8
+        </div>
+        
+        <button id="nextBtn" aria-label="Próximo slide" class="inline-flex gap-2 border-gradient text-white/80 bg-white/5 rounded-full p-4 backdrop-blur-xl items-center transition-all hover:text-white hover:-translate-y-0.5 hover:bg-white/10 focus:ring-2 focus:ring-blue-400 focus:outline-none disabled:opacity-30 disabled:hover:translate-y-0 disabled:hover:bg-white/5 disabled:cursor-not-allowed ring-1 ring-white/10 shadow-lg" style="border-radius: 9999px">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+    </div>
+
+    <!-- JS Logic -->
+    <script>
+        let currentSlide = 0;
+        const totalSlides = 8;
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const currentNum = document.getElementById('currentSlideNum');
+        const progressBar = document.getElementById('progressBar');
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            
+            currentNum.textContent = currentSlide + 1;
+            progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+            
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlides();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlides();
+            }
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === 'Space' || e.key === 'Enter') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Initialize state
+        updateSlides();
+    </script>
+</body>
+</html>
